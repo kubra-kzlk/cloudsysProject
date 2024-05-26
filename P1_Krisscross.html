@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="webshop" />
+    <meta name="keywords" content="ILLUMINATION, illumination, webshop" />
+    <meta name="author" content="Kubra Kizilkilic" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script defer src="javascript/shop.js"></script>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <title>ILLUMINATION</title>
+  </head>
+  <body id="product_index">
+    <header>
+      <a class="logo" href="index.html"
+        ><img src="assets/images/logo.png" alt="Logo" />ILLUMINATION</a
+      >
+      <nav >
+        <a href="shop.html">shop</a>
+        <a href="contact.html">contact</a>
+
+        <a href="klanten.html">klanten</a>
+      </nav>
+      <form id="search" action="#">
+        
+        <input type="search" name="zoeken" id="zoek" placeholder="zoeken..." />
+       <img src="assets/images/searchlogo.png" />
+        <input type="submit" value="zoek" />
+      </form>
+      
+    </header>
+    
+<!--like-buttons en comment-sections voorzien op topic-pagina's-->
+    <main class="productdetailpage_main">
+      <h4>Design hanglamp messing - Kriscros</h4>
+      <h5>HANGLAMP</h5>
+      <br/><br/><br/><br/>
+      <section id="detail_page_pic">
+        <figure>
+          <img id = "img_detailpage" src="assets/images/Afbeelding1.jpg" />
+          <figcaption>kriscros</figcaption>
+        </figure>
+      
+      <section id="detail_page">        
+        <H6>Hanglamp Kriscros is een echte blikvanger voor in huis! Deze design 
+          hanglamp weet al snel de aandacht te trekken in de ruimte door zijn unieke vorm.</h6>
+        <br/>
+        <br/>
+          <h6>&#8364 175</h6>
+        <h6>dimbaar: Nee </h6>
+        <h6>Type licht: direct licht</h6>       
+      </section>  
+      <section class="heart">          
+          <button id="btn_heart" onclick="heart()">    &#10084;</button>
+        </section>    
+      </section>
+
+      <section id="review">
+        <br/>
+        <br/>
+        <br/><br/><br/>
+        <h5>REVIEW</h5>
+        
+      <form class="form_review" action="#" method="GET">
+        <label for="fname">VOORNAAM:</label>
+        <input type="text" id="fname" name="fname" /><br /><br />
+        <label for="lname">ACHTERNAAM:</label>
+        <input type="text" id="lname" name="lname" /><br /><br />
+        <label for="message">BERICHT:</label>
+        <input type="text" id="message_review" name="message" /><br /><br />
+        <input type="submit" value="VERZEND" class="btn_review" />
+      </form>
+      <br/><br/><br/><br/><br/><br/><br/>
+    </section>
+    </main>
+    
+
+    <footer>
+      <article class="left">
+        <p>CONTACT INFO</p>
+        <p>
+          e-mail:<a href="mailto:kubra.kizilkilic@student.ap.be">
+            kubra.kizilkilic@student.ap.be</a
+          >
+        </p>
+        <p>Noorderplaats 2, 2000 Antwerpen</p>
+      </article>
+      <article class="right">
+        <p>&copy; ILLUMINATION</p>
+      </article>
+      <article>
+        <ul class="socials">
+          <li>
+            <a href="#" target="_blank"
+              ><img
+                src="assets/images/iconyoutube.png"
+                width="126px"
+                height="126px"
+            /></a>
+          </li>
+          <li>
+            <a href="#" target="_blank"
+              ><img
+                src="assets/images/iconinstagram.png"
+                width="126px"
+                height="126px"
+            /></a>
+          </li>
+          <li>
+            <a href="#" target="_blank"
+              ><img
+                src="assets/images/iconfacebook.png"
+                width="126px"
+                height="126px"
+            /></a>
+          </li>
+          <li>
+            <a href="#" target="_blank"
+              ><img
+                src="assets/images/icontwitter.png"
+                width="126px"
+                height="126px"
+            /></a>
+          </li>
+        </ul>
+      </article>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="webshop" />
+    <meta name="keywords" content="ILLUMINATION, illumination, webshop" />
+    <meta name="author" content="Kubra Kizilkilic" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+      defer
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+
+    <script src="javascript/leaflet.js" defer></script>
+
+    <title>ILLUMINATION</title>
+  </head>
+  <body>
+    <header>
+      <a class="logo" href="index.html"
+        ><img src="assets/images/logo.png" alt="Logo" />ILLUMINATION</a
+      >
+      <nav >
+        <a href="shop.html" >shop</a>
+        <a href="contact.html">contact</a>
+
+        <a href="klanten.html">klanten</a>
+      </nav>
+      <form id="search" action="#">
+        <input type="search" name="search" id="zoek" placeholder="zoeken..." />
+        <a href="index.html"><img src="assets/images/searchlogo.png" /></a> 
+        <input type="submit" value="zoek" />
+      </form>
+    </header>
+
+    <section id="teaser">
+      <img src="assets/images/banner.jpeg" />
+    </section>
+
+    <main>
+      <article class="left">
+        <h4>Contact form</h4>
+        <form action="#" class="contactform" id="contactform">
+          <br />
+          <br />
+          <br />
+          <label for="name"><h7>NAAM</h7></label
+          ><br />
+          <input type="text" name="name" id="name" /><br />
+          <br />
+          <label for="email"><h7>E-MAIL</h7></label
+          ><br />
+          <input type="email" name="email" id="email" /><br />
+          <br />
+          <label for="message"><h7>BERICHT</h7></label
+          ><br />
+          <textarea name="message" id="message" rows="6"></textarea><br />
+          <br />
+          <br />
+          <input type="submit" value="VERZEND" class="contactbtn" />
+        </form>
+      </article>
+
+      <div id="map"></div>
+      <br />
+      <br />
+      <br />
+    </main>
+
+    <footer>
+      <article class="left">
+        <p>CONTACT INFO</p>
+        <p>
+          e-mail:<a href="mailto:kubra.kizilkilic@student.ap.be">
+            kubra.kizilkilic@student.ap.be</a
+          >
+        </p>
+        <p>Noorderplaats 2, 2000 Antwerpen</p>
+      </article>
+      <article class="right">
+        <p>&copy; 2023 ILLUMINATION</p>
+      </article>
+      <article>
+        <ul class="socials">
+          <li>
+            <a href="#" target="_blank"
+              ><img
+                src="assets/images/iconyoutube.png"
+                width="126px"
+                height="126px"
+            /></a>
+          </li>
+          <li>
+            <a href="#" target="_blank"
+              ><img
+                src="assets/images/iconinstagram.png"
+                width="126px"
+                height="126px"
+            /></a>
+          </li>
+          <li>
+            <a href="#" target="_blank"
+              ><img
+                src="assets/images/iconfacebook.png"
+                width="126px"
+                height="126px"
+            /></a>
+          </li>
+          <li>
+            <a href="#" target="_blank"
+              ><img
+                src="assets/images/icontwitter.png"
+                width="126px"
+                height="126px"
+            /></a>
+          </li>
+        </ul>
+      </article>
+    </footer>
+  </body>
+</html>
