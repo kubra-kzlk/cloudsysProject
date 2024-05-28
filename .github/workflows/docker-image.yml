@@ -23,11 +23,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install Cosign
-        run: |
-          COSIGN_VERSION=2.2.4
-          curl -LO https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-amd64
-          chmod +x cosign-linux-amd64
-          sudo mv cosign-linux-amd64 /usr/local/bin/cosign
+        uses: sigstore/cosign-installer@v2.2.4
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -39,9 +35,11 @@ jobs:
           password: ${{ secrets.dockertoken }}
 
       - name: Build and push Docker image
-        run: 
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/my-php-apache-app:latest .
-          docker push ${{secrets.DOCKER_USERNAME }}/my-php-apache-app:latest
-
+        uses: docker/build-push-action@v3.5.0
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-php-apache-app:latest
+          
       - name: Verify Cosign Installation
         run: cosign version
