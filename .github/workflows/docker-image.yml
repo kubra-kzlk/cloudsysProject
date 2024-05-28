@@ -15,7 +15,7 @@ env:
   IMAGE_NAME: kubra-kzlk/cloudsysProject
 
 jobs:
-  build:
+  build and push:
     runs-on: ubuntu-latest
     permissions:
       contents: read
