@@ -44,11 +44,9 @@ jobs:
           password: ${{ secrets.dockertoken }}
           
     - name: Build and push Docker image
-        uses: docker/build-push-actions@v2
-        with:
-        context: .
-        push: true
-        tags: kubrakizilkilic/cloudsysProject:latest
+      run:  
+          docker build: -t ${{ secrets.DOCKER_USERNAME }}/my-php-apache-app:latest .
+          docker push: ${{secrets.DOCKER_USERNAME }}/my-php-apache-app:latest
         
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
