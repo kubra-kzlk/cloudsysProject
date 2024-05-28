@@ -31,6 +31,10 @@ jobs:
           docker build -t ${{ secrets.DOCKER_USERNAME }}/my-php-apache-app:latest .
           docker push: ${{secrets.DOCKER_USERNAME }}/my-php-apache-app:latest
 
+      - name: Install Cosign v2.2.4
+        run: |
+          go install github.com/sigstore/cosign/cmd/cosign@v2.2.4
+
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
       # repository is public to avoid leaking data.  If you would like to publish
