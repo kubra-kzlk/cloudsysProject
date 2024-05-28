@@ -35,7 +35,6 @@ jobs:
           password: ${{ secrets.dockertoken }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v3.5.0
         with:
           context: .
           push: true
