@@ -24,11 +24,11 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3.5.0
 
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@v3.5.0
+        uses: sigstore/cosign-installer@v2.2.4
         with:
           cosign-release: "v2.2.4"
 
@@ -42,11 +42,14 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: kubrakizilkilic
           password: ${{ secrets.dockertoken }}
-          
+
       - name: Build and push Docker image
-        run: 
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/my-php-apache-app:latest .
-          docker push: ${{secrets.DOCKER_USERNAME }}/my-php-apache-app:latest
+        uses: docker/build-push-actions@v2
+        with:
+        context: .
+        push: true
+        tags: kubrakizilkilic/cloudsysProject:latest
+        
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
