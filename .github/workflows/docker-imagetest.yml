@@ -1,0 +1,45 @@
+name: Docker
+on:
+  push:
+    branches: 
+      - main
+
+env:
+  REGISTRY: docker.io
+  # github.repository as <account>/<repo>
+  IMAGE_NAME: kubra-kzlk/cloudsysProject
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username:  kubrakizilkilic
+          password: ${{ secrets.dockertoken }}
+
+      - name: Build and push Docker image
+        run: |  
+          docker build: -t ${{ secrets.DOCKER_USERNAME }}/my-php-apache-app:latest .
+          docker push: ${{secrets.DOCKER_USERNAME }}/my-php-apache-app:latest
+
+      - name: Install Cosign v2.2.4
+        run: |
+          go install github.com/sigstore/cosign/cmd/cosign@v2.2.4
+
+      - name: Sign the published Docker image
+        if: ${{ github.event_name != 'pull_request' }}
+        env:
+          # https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
+          IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/my-php-apache-app
+        run: |
+          DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' $IMAGE_NAME:latest)
+          cosign sign --yes $DIGEST
