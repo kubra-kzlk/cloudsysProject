@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   php-apache:
     image: kubrakizilkilic/my-php-apache-app:latest
@@ -9,7 +8,9 @@ services:
     depends_on:
       - db
   db:
-    image: kubrakizilkilic/mariadb:latest
+    image: mariadb:latest
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: backend
+      MYSQL_DATABASE: root
+    ports:
+      - "3306:3306"
