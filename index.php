@@ -141,5 +141,42 @@
         </ul>
       </article>
     </footer>
+     <?php
+    if ($result->num_rows > 0) {
+      echo "<table border='1'>";
+      echo "<tr><th>ID</th></tr>";
+      while($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>". $row["idusers"]. "</td>";
+        echo "</tr>";
+      }
+      echo "</table>";
+    } else {
+      echo "No records found.";
+    }
+    ?>
   </body>
 </html>
+
+
+<?php
+// PHP code to connect to database and retrieve data
+$databaseHost = 'localhost';
+$databaseUsername = 'root';
+$databasePassword ='pw';
+$databaseName = 'users';
+
+$mysqli = mysqli_connect($databaseHost,$databaseUsername, $databasePassword, $databaseName);
+
+// Check connection
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
+
+// Retrieve data from users table
+$sql = "SELECT idusers FROM users";
+$result = $mysqli->query($sql);
+
+// Close connection
+$mysqli->close();
+?>
