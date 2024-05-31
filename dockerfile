@@ -1,5 +1,13 @@
-FROM php:apache
+FROM php:8.0-apache
+
+# Copy the content of the current directory to /var/www/html in the container
 COPY . /var/www/html
-EXPOSE 36
-RUN  docker-php-ext-install mysqli
+
+# Expose port 80 to allow connections to the Apache server
+EXPOSE 80
+
+# Install the mysqli extension for PHP
+RUN docker-php-ext-install mysqli
+
+# Start Apache in the foreground
 CMD ["apache2-foreground"]
